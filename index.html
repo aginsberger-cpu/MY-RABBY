@@ -26,23 +26,22 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 80px 10%;
+            padding: 100px 10%;
             background-color: var(--light-bg);
             min-height: 60vh;
         }
 
         .hero-text { flex: 1; padding-left: 50px; }
-        .hero-text h1 { font-size: 3.5rem; margin-bottom: 20px; font-weight: 700; }
-        .hero-text p { font-size: 1.25rem; color: var(--text-gray); max-width: 500px; margin-bottom: 30px; }
+        .hero-text h1 { font-size: 3.8rem; margin-bottom: 20px; font-weight: 700; line-height: 1.1; }
+        .hero-text p { font-size: 1.4rem; color: var(--text-gray); max-width: 550px; margin-bottom: 30px; }
 
         .hero-image img {
-            width: 350px;
+            width: 380px;
             border-radius: 50%;
-            border: 8px solid white;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border: 10px solid white;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
         }
 
-        /* Gallery Section */
         .app-preview {
             padding: 80px 10%;
             text-align: center;
@@ -59,32 +58,33 @@
 
         .phone-frame {
             width: 280px;
-            border: 10px solid #222;
-            border-radius: 40px;
+            border: 12px solid #1a1a1a;
+            border-radius: 45px;
             overflow: hidden;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.3);
         }
 
-        .phone-frame img {
-            width: 100%;
-            display: block;
-        }
+        .phone-frame img { width: 100%; display: block; }
 
-        .gallery { padding: 80px 10%; text-align: center; background-color: var(--light-bg); }
-        .cards-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
-        .card { background: white; padding: 40px 30px; border-radius: 15px; border: 1px solid #E5E7EB; }
+        /* FAQ Section Style */
+        .faq-section { padding: 100px 15%; background-color: var(--light-bg); }
+        .faq-container { max-width: 900px; margin: 0 auto; }
+        .faq-item { background: white; padding: 30px; border-radius: 20px; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-right: 5px solid var(--accent-gold); }
+        .faq-item h3 { margin-top: 0; color: var(--primary-blue); font-size: 1.4rem; }
+        .faq-item p { color: var(--text-gray); font-size: 1.1rem; margin-bottom: 0; }
 
-        .pillars { background-color: var(--primary-blue); color: white; padding: 60px 10%; display: flex; justify-content: space-around; text-align: center; }
-        .pillar h4 { color: var(--accent-gold); font-size: 1.5rem; }
+        .pillars { background-color: var(--primary-blue); color: white; padding: 80px 10%; display: flex; justify-content: space-around; text-align: center; }
+        .pillar h4 { color: var(--accent-gold); font-size: 1.8rem; margin-bottom: 10px; }
 
         .cta { padding: 100px 10%; text-align: center; background-color: white; }
-        input[type="email"] { padding: 15px 25px; width: 300px; border: 1px solid #D1D5DB; border-radius: 50px; }
-        button { padding: 15px 40px; background-color: var(--accent-gold); color: white; border: none; border-radius: 50px; cursor: pointer; font-weight: 700; }
+        button { padding: 18px 45px; background-color: var(--accent-gold); color: white; border: none; border-radius: 50px; cursor: pointer; font-weight: 700; font-size: 1.1rem; transition: 0.3s; }
+        button:hover { background-color: #b8962d; transform: translateY(-3px); }
 
         @media (max-width: 768px) {
-            .hero { flex-direction: column-reverse; text-align: center; }
+            .hero { flex-direction: column-reverse; text-align: center; padding: 60px 5%; }
             .hero-text { padding-left: 0; margin-top: 40px; }
-            .preview-grid { gap: 20px; }
+            .hero-text h1 { font-size: 2.8rem; }
+            .faq-section { padding: 60px 5%; }
         }
     </style>
 </head>
@@ -95,47 +95,49 @@
             <img src="rabbi_image.jpg" alt="My Rabbi">
         </div>
         <div class="hero-text">
-            <h1>חוכמת הדורות.<br>בטכנולוגיה של מחר.</h1>
-            <p>My Rabbi מנגיש עבורך את אוצרות היהדות בשיח אישי, דיסקרטי ומדויק. פשוט לשאול.</p>
-            <button onclick="document.getElementById('waitlist').scrollIntoView()">הצטרפו למהפכת הידע</button>
+            <h1>יש לך שאלה?<br><span style="color: var(--accent-gold);">הרבי מחכה לך.</span></h1>
+            <p>לא צריך לחכות לשיעור או לתאם פגישה. כל חוכמת היהדות, ההלכה והמחשבה זמינה עבורך עכשיו – בשיחה אישית, עמוקה ודיסקרטית.</p>
+            <button onclick="document.getElementById('faq').scrollIntoView()">בואו נראה איך זה עובד</button>
         </div>
     </section>
 
     <section class="app-preview">
-        <h2 style="font-size: 2.5rem;">מבט מקרוב</h2>
-        <p style="color: var(--text-gray); font-size: 1.2rem;">ממשק חדשני, נוח ומזמין לכל שאלה</p>
+        <h2 style="font-size: 2.5rem;">טכנולוגיה בשירות המסורת</h2>
+        <p style="color: var(--text-gray); font-size: 1.2rem;">ממשק פשוט שמחבר אותך למקורות הכי עמוקים</p>
         <div class="preview-grid">
-            <div class="phone-frame">
-                <img src="screen1.jpg" alt="בחירת רב">
-            </div>
-            <div class="phone-frame">
-                <img src="screen2.jpg" alt="שיחת צ'אט">
-            </div>
+            <div class="phone-frame"><img src="screen1.jpg" alt="בחירת רב"></div>
+            <div class="phone-frame"><img src="screen2.jpg" alt="שיחת צ'אט"></div>
         </div>
     </section>
 
-    <section class="gallery">
-        <h2 style="font-size: 2.5rem; margin-bottom: 40px;">יותר מתשובות. חוכמה לחיים.</h2>
-        <div class="cards-container">
-            <div class="card"><h3>איך שומרים על שלום בית בעידן של רעש דיגיטלי?</h3></div>
-            <div class="card"><h3>מה היהדות אומרת על המזל שלי? האם אפשר לשנות אותו?</h3></div>
-            <div class="card"><h3>בינה מלאכותית, שבת ומוסר: לאן פנינו מועדות?</h3></div>
-            <div class="card"><h3>הסוד היהודי לניהול זמן ושלווה בתוך המרוץ.</h3></div>
+    <section class="faq-section" id="faq">
+        <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 50px;">אז מה אפשר לשאול?</h2>
+        <div class="faq-container">
+            <div class="faq-item">
+                <h3>"איך מוצאים שלווה פנימית בעולם של רעש ואינסטגרם?"</h3>
+                <p><strong>תשובת My Rabbi:</strong> היהדות קוראת לזה 'מנוחת הנפש'. המפתח הוא יצירת איים של זמן ללא מסכים. שבת היא המודל, אבל את יכולה לייצר 'מיני שבת' בכל יום – 10 דקות של חיבור לעצמך ולבורא, בלי התראות מלחיצות.</p>
+            </div>
+            <div class="faq-item">
+                <h3>"מרגיש לי שהזוגיות שלנו נשחקה בשגרה, מה היהדות מציעה?"</h3>
+                <p><strong>תשובת My Rabbi:</strong> הסוד הוא 'דיבור של פנים אל פנים'. היהדות מדגישה את חשיבות השיחה הלבבית. נסו לקבוע זמן קבוע בשבוע, בלי טלפונים ובלי לדבר על הילדים או על סידורים, רק על החלומות והרגשות שלכם.</p>
+            </div>
+            <div class="faq-item">
+                <h3>"האם בינה מלאכותית היא דבר חיובי לפי התורה?"</h3>
+                <p><strong>תשובת My Rabbi:</strong> כל כלי טכנולוגי הוא 'חומר ביד היוצר'. כמו אש – היא יכולה לשרוף או לחמם. אם אנחנו משתמשים ב-AI כדי להנגיש חוכמה, להפיץ טוב וללמוד תורה, אנחנו הופכים את הטכנולוגיה לכלי שמקדש את העולם.</p>
+            </div>
         </div>
     </section>
 
     <section class="pillars">
-        <div class="pillar"><h4>חיבור אישי</h4><p>שיחה בגובה העיניים עם הדמות שמדברת אליך.</p></div>
-        <div class="pillar"><h4>דיוק הלכתי</h4><p>בינה מלאכותית המבוססת על המקורות המוסמכים ביותר.</p></div>
-        <div class="pillar"><h4>פרטיות מוחלטת</h4><p>השאלות שלך נשארות בינך לבין המסך.</p></div>
+        <div class="pillar"><h4>זמינות 24/6</h4><p>חוכמה יהודית תמיד בכיס שלך.</p></div>
+        <div class="pillar"><h4>דיוק ומקורות</h4><p>תשובות מבוססות על המקורות המוסמכים ביותר.</p></div>
+        <div class="pillar"><h4>דיסקרטיות</h4><p>המרחב האישי שלך בטוח ומוגן.</p></div>
     </section>
 
     <section class="cta" id="waitlist">
-        <h2>היו הראשונים להתחבר למצפן היהודי שלכם</h2>
-        <div class="email-form">
-            <input type="email" placeholder="האימייל שלך">
-            <button>שלחו לי הזמנה</button>
-        </div>
+        <h2>הצטרפו למהפכת הידע היהודי</h2>
+        <p style="color: var(--text-gray); margin-bottom: 30px;">היו הראשונים לקבל גישה למצפן האישי שלכם.</p>
+        <button>אני רוצה להירשם לעדכונים</button>
     </section>
 
 </body>
