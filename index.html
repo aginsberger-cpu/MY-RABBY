@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Rabbi | המצפן היהודי האישי שלך</title>
+    <title>My Rabbi | בינה מלאכותית בלב יהודי</title>
     <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -22,153 +22,168 @@
             line-height: 1.7;
         }
 
+        /* סרגל עליון עם הלוגו בעיגול */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 70px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 10%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-circle {
+            width: 45px;
+            height: 45px;
+            background-color: var(--primary-blue);
+            border: 2px solid var(--accent-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-gold);
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-align: center;
+            line-height: 1;
+        }
+
+        .logo-text {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--primary-blue);
+            letter-spacing: 1px;
+        }
+
         .hero {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 120px 10% 80px;
+            padding: 160px 10% 80px; /* הוספתי מרווח בגלל ההדר הקבוע */
             background: linear-gradient(135deg, #f3f4f6 0%, #ffffff 100%);
-            min-height: 70vh;
+            min-height: 60vh;
         }
 
         .hero-text { flex: 1; padding-left: 60px; }
-        .hero-text h1 { font-size: 4rem; margin-bottom: 20px; font-weight: 700; line-height: 1.1; color: var(--primary-blue); }
-        .hero-text p { font-size: 1.5rem; color: var(--text-gray); max-width: 600px; margin-bottom: 35px; }
+        .hero-text h1 { font-size: 3.5rem; margin-bottom: 20px; font-weight: 700; line-height: 1.1; }
+        .hero-text .ai-badge { display: inline-block; background: var(--primary-blue); color: var(--accent-gold); padding: 5px 20px; border-radius: 50px; font-weight: 700; margin-bottom: 20px; font-size: 0.8rem; }
+        .hero-text p { font-size: 1.4rem; color: var(--text-gray); max-width: 600px; margin-bottom: 35px; }
 
         .hero-image img {
-            width: 400px;
+            width: 380px;
             border-radius: 50%;
-            border: 12px solid white;
+            border: 10px solid white;
             box-shadow: 0 30px 60px rgba(0,0,0,0.12);
         }
 
-        .section-title { text-align: center; font-size: 2.8rem; margin-bottom: 15px; font-weight: 700; }
-        .section-subtitle { text-align: center; color: var(--text-gray); font-size: 1.3rem; margin-bottom: 50px; max-width: 700px; margin-left: auto; margin-right: auto; }
+        .ai-feature { padding: 80px 10%; background: var(--primary-blue); color: white; text-align: center; }
+        .ai-feature h2 { color: var(--accent-gold); font-size: 2.2rem; margin-bottom: 20px; }
+        .ai-feature p { max-width: 800px; margin: 0 auto; font-size: 1.2rem; opacity: 0.9; }
 
-        .app-preview { padding: 100px 10%; background-color: white; }
-        .preview-grid { display: flex; justify-content: center; gap: 50px; margin-top: 50px; flex-wrap: wrap; }
+        .app-preview { padding: 80px 10%; background-color: white; text-align: center; }
+        .preview-grid { display: flex; justify-content: center; gap: 40px; margin-top: 50px; flex-wrap: wrap; }
         .phone-frame {
-            width: 290px;
-            border: 14px solid #1a1a1a;
-            border-radius: 50px;
+            width: 270px;
+            border: 12px solid #1a1a1a;
+            border-radius: 45px;
             overflow: hidden;
-            box-shadow: 0 35px 70px -15px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease;
+            box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.3);
         }
-        .phone-frame:hover { transform: translateY(-10px); }
         .phone-frame img { width: 100%; display: block; }
 
-        /* FAQ - התוכן האיכותי */
-        .faq-section { padding: 100px 10%; background-color: var(--light-bg); }
-        .faq-container { max-width: 1000px; margin: 0 auto; display: grid; gap: 25px; }
+        .faq-section { padding: 80px 10%; background-color: var(--light-bg); }
+        .faq-container { max-width: 900px; margin: 0 auto; display: grid; gap: 20px; }
         .faq-item { 
-            background: white; 
-            padding: 35px; 
-            border-radius: 25px; 
-            box-shadow: 0 10px 20px rgba(0,0,0,0.03); 
-            border-right: 6px solid var(--accent-gold);
-            transition: 0.3s;
+            background: white; padding: 30px; border-radius: 20px; 
+            border-right: 5px solid var(--accent-gold);
         }
-        .faq-item:hover { box-shadow: 0 15px 30px rgba(0,0,0,0.08); }
-        .faq-item h3 { margin-top: 0; color: var(--primary-blue); font-size: 1.5rem; margin-bottom: 15px; }
-        .faq-item p { color: var(--text-gray); font-size: 1.15rem; margin-bottom: 0; }
-        .tag { display: inline-block; background: #f0f4f8; color: var(--accent-gold); padding: 5px 15px; border-radius: 20px; font-size: 0.85rem; font-weight: 700; margin-bottom: 10px; text-transform: uppercase; }
+        .faq-item h3 { margin-top: 0; font-size: 1.3rem; }
 
-        .pillars { background-color: var(--primary-blue); color: white; padding: 100px 10%; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; text-align: center; }
-        .pillar h4 { color: var(--accent-gold); font-size: 1.8rem; margin-bottom: 15px; }
-        .pillar p { opacity: 0.8; font-size: 1.1rem; }
-
-        .cta { padding: 120px 10%; text-align: center; background: white; }
-        .cta h2 { font-size: 3rem; margin-bottom: 20px; }
-        button { padding: 20px 50px; background-color: var(--accent-gold); color: white; border: none; border-radius: 60px; cursor: pointer; font-weight: 700; font-size: 1.2rem; box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3); transition: 0.3s; }
-        button:hover { background-color: #b8962d; transform: scale(1.05); }
+        .cta { padding: 100px 10%; text-align: center; }
+        button { 
+            padding: 18px 45px; background-color: var(--accent-gold); color: white; border: none; 
+            border-radius: 50px; cursor: pointer; font-weight: 700; font-size: 1.1rem; transition: 0.3s; 
+        }
+        button:hover { transform: scale(1.05); background-color: #b8962d; }
 
         @media (max-width: 768px) {
-            .hero { flex-direction: column-reverse; text-align: center; padding: 80px 5% 40px; }
-            .hero-text { padding-left: 0; margin-top: 50px; }
-            .hero-text h1 { font-size: 3rem; }
-            .section-title { font-size: 2.2rem; }
+            header { padding: 0 5%; }
+            .hero { flex-direction: column-reverse; text-align: center; padding-top: 120px; }
+            .hero-text { padding-left: 0; margin-top: 40px; }
+            .hero-text h1 { font-size: 2.5rem; }
+            .hero-image img { width: 280px; }
         }
     </style>
 </head>
 <body>
+
+    <header>
+        <div class="logo-container">
+            <div class="logo-circle">MY<br>RABBI</div>
+            <div class="logo-text">MY RABBI</div>
+        </div>
+        <div class="nav-links">
+            <button style="padding: 8px 20px; font-size: 0.9rem;" onclick="document.getElementById('waitlist').scrollIntoView()">הצטרפות</button>
+        </div>
+    </header>
 
     <section class="hero">
         <div class="hero-image">
             <img src="rabbi_image.jpg" alt="My Rabbi">
         </div>
         <div class="hero-text">
-            <h1>התשובות שחיפשת.<br><span style="color: var(--accent-gold);">במרחק הודעה.</span></h1>
-            <p>חוויה חדשה של חיבור למקורות. My Rabbi משלב בינה מלאכותית מתקדמת עם עומק אנושי כדי לתת לך מענה אישי, הלכתי ומחשבתי – בכל רגע שבו הלב מבקש בהירות.</p>
-            <button onclick="document.getElementById('faq').scrollIntoView()">להצצה לתוך השיח</button>
+            <div class="ai-badge">NEXT-GEN JUDAISM</div>
+            <h1>חוכמת הדורות.<br><span style="color: var(--accent-gold);">בבינה שעוד לא הכרת.</span></h1>
+            <p>חוויה פורצת דרך שבה טכנולוגיית העתיד פוגשת את הלב היהודי. שיח חי, עמוק ומותאם אישית אליך, המבוסס על בינה מלאכותית שמבינה את השפה שלך.</p>
+            <button onclick="document.getElementById('ai-info').scrollIntoView()">איך זה עובד?</button>
         </div>
+    </section>
+
+    <section class="ai-feature" id="ai-info">
+        <h2>בינה מלאכותית עם נשמה</h2>
+        <p>שילבנו את מודלי השפה המתקדמים בעולם עם מאגרי ידע תורניים עצומים. המערכת סורקת, מנתחת ומנגישה לך תשובות מורכבות בשפה פשוטה וברורה, תוך שמירה על דיוק הלכתי ודיסקרטיות מלאה.</p>
     </section>
 
     <section class="app-preview">
-        <h2 class="section-title">איך זה נראה בפנים?</h2>
-        <p class="section-subtitle">עיצבנו עבורך סביבה שקטה, מכבדת ואינטואיטיבית, שבה אפשר פשוט לשאול ולהעמיק.</p>
+        <h2 style="font-size: 2.5rem; margin-bottom: 10px;">פשוט לשאול. פשוט להבין.</h2>
+        <p style="color: var(--text-gray); font-size: 1.2rem;">הממשק הכי מתקדם שיש, בעיצוב שנותן כבוד למילים.</p>
         <div class="preview-grid">
-            <div class="phone-frame"><img src="screen1.jpg" alt="בחירת דמות רבנית"></div>
-            <div class="phone-frame"><img src="screen2.jpg" alt="צ'אט אישי עם My Rabbi"></div>
+            <div class="phone-frame"><img src="screen1.jpg" alt="בחירת רב"></div>
+            <div class="phone-frame"><img src="screen2.jpg" alt="שיחת צ'אט"></div>
         </div>
     </section>
 
-    <section class="faq-section" id="faq">
-        <h2 class="section-title">שיח של חוכמה</h2>
-        <p class="section-subtitle">הנה כמה דוגמאות לשאלות שהקהילה שלנו מעלה, והתשובות שמשנות את זווית הראייה:</p>
-        
+    <section class="faq-section">
+        <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 40px;">שיח של חוכמה</h2>
         <div class="faq-container">
             <div class="faq-item">
-                <span class="tag">חינוך ומשפחה</span>
-                <h3>"הילדים כל היום במסכים. איך מחזירים את 'שולחן השבת' למרכז הבית?"</h3>
-                <p><strong>המענה שלנו:</strong> חינוך הוא לא מלחמה נגד הטכנולוגיה, אלא יצירת אלטרנטיבה מרגשת יותר. הציעו 'זמן איכות ללא פילטרים' – משחק משפחתי, סיפור מרתק או פשוט הקשבה מלאה. כשהילדים יראו שההורים מניחים את הטלפון בצד, הם יבינו שהקשר האנושי הוא האוצר האמיתי.</p>
+                <h3>"איך מוצאים איזון בעולם של רעש דיגיטלי?"</h3>
+                <p><strong>המענה של My Rabbi:</strong> היהדות מלמדת אותנו את סוד ה'צמצום'. ה-AI שלנו יעזור לך לבנות שגרה שבה הטכנולוגיה משרתת אותך, ולא את אותה.</p>
             </div>
-
             <div class="faq-item">
-                <span class="tag">שלווה ורוח</span>
-                <h3>"אני מרגישה מוצפת מהחדשות והלחץ סביבנו. איך היהדות מציעה להירגע?"</h3>
-                <p><strong>המענה שלנו:</strong> ביהדות זה נקרא 'התבודדות'. קחי לך 5 דקות ביום של שקט מוחלט. דברי עם הבורא בלשונך, או פשוט נשמי עמוק ותזכירי לעצמך: 'השגחה פרטית מלווה אותי'. השקט החיצוני הוא הדרך היחידה לבנות שקט פנימי.</p>
+                <h3>"האם ה-AI באמת מבין את עומק השאלה שלי?"</h3>
+                <p><strong>המענה של My Rabbi:</strong> המערכת אומנה להבין הקשרים רגשיים ותורניים. היא לא רק שולפת מידע, היא מחברת בין השאלה שלך למקור שנותן את המענה המדויק ביותר עבורך.</p>
             </div>
-
-            <div class="faq-item">
-                <span class="tag">קריירה וערכים</span>
-                <h3>"האם המרדף אחרי פרנסה והצלחה סותר את עבודת השם שלי?"</h3>
-                <p><strong>המענה שלנו:</strong> ממש לא. 'פשיטא דעביד איניש למזוניה'. החוכמה היא להפוך את העבודה עצמה לעבודת השם – על ידי יושרה, הארת פנים לקולגות והבנה שהפרנסה היא כלי שמאפשר לנו לעשות טוב בעולם.</p>
-            </div>
-
-            <div class="faq-item">
-                <span class="tag">זוגיות</span>
-                <h3>"איך שומרים על הערכה הדדית גם אחרי שנים של שגרה?"</h3>
-                <p><strong>המענה שלנו:</strong> 'עין טובה'. אנחנו נוטים להתרגל לטוב ולהבליט את החסרונות. נסו תרגיל קטן: בכל יום, אמרו אחד לשני דבר אחד טוב שהבחנתם בו. הכרת הטוב היא הדלק ששומר על אש האהבה דולקת.</p>
-            </div>
-
-            <div class="faq-item">
-                <span class="tag">טכנולוגיה ומוסר</span>
-                <h3>"האם זה נכון להשתמש בבינה מלאכותית לשאלות הלכתיות?"</h3>
-                <p><strong>המענה שלנו:</strong> הבינה המלאכותית היא כלי עזר עצום לסיכום והנגשת ידע, אך היא לא מחליפה את פסיקת הרב ושיקול הדעת האנושי. My Rabbi כאן כדי לפתוח לך שער להבנה עמוקה יותר, שתמיד מחוברת לשורשי ההלכה.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="pillars">
-        <div class="pillar">
-            <h4>חיבור למקורות</h4>
-            <p>ידע המבוסס על התנ"ך, הגמרא, המחשבה וההלכה הצרופה.</p>
-        </div>
-        <div class="pillar">
-            <h4>שיחה אישית</h4>
-            <p>דיאלוג זורם ומכבד שמתאים את עצמו לקצב ולצורך שלך.</p>
-        </div>
-        <div class="pillar">
-            <h4>זמינות מלאה</h4>
-            <p>התייעצות בכל שעה (פרט לשבתות וחגים) – המצפן שלך תמיד איתך.</p>
         </div>
     </section>
 
     <section class="cta" id="waitlist">
-        <h2>מוכנים להתחבר?</h2>
-        <p style="color: var(--text-gray); font-size: 1.3rem; margin-bottom: 40px;">הצטרפו לאלפי משתמשים שכבר מצאו את המצפן האישי שלהם.</p>
-        <button>אני רוצה להצטרף לרשימת ההמתנה</button>
+        <h2>העתיד של עולם התורה כבר כאן</h2>
+        <p style="color: var(--text-gray); font-size: 1.2rem; margin-bottom: 30px;">הצטרפו למהפכה שמשנה את הדרך שבה אנחנו לומדים ומתייעצים.</p>
+        <button>אני רוצה גישה מוקדמת</button>
     </section>
 
 </body>
