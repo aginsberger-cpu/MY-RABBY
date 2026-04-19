@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Rabbi | חוכמת הדורות בטכנולוגיה של מחר</title>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #0F172A; /* Oxford Blue */
+            --accent-gold: #D4AF37; /* Gold */
+            --light-bg: #F9FAFB;
+            --text-gray: #4B5563;
+        }
+
+        body {
+            font-family: 'Assistant', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+            color: var(--primary-blue);
+            line-height: 1.6;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 80px 10%;
+            background-color: var(--light-bg);
+            min-height: 60vh;
+        }
+
+        .hero-text {
+            flex: 1;
+            padding-left: 50px;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero-text p {
+            font-size: 1.25rem;
+            color: var(--text-gray);
+            max-width: 500px;
+            margin-bottom: 30px;
+        }
+
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .hero-image img {
+            width: 350px;
+            border-radius: 50%;
+            border: 8px solid white;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        /* Curiosity Gallery */
+        .gallery {
+            padding: 80px 10%;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+        }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 15px;
+            border: 1px solid #E5E7EB;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-gold);
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            color: var(--primary-blue);
+        }
+
+        /* Values (The Pillars) */
+        .pillars {
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 80px 10%;
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+        }
+
+        .pillar {
+            max-width: 250px;
+        }
+
+        .pillar h4 {
+            color: var(--accent-gold);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 100px 10%;
+            text-align: center;
+            background-color: var(--light-bg);
+        }
+
+        .email-form {
+            margin-top: 30px;
+        }
+
+        input[type="email"] {
+            padding: 15px 25px;
+            width: 300px;
+            border: 1px solid #D1D5DB;
+            border-radius: 50px;
+            outline: none;
+            font-size: 1rem;
+        }
+
+        button {
+            padding: 15px 40px;
+            background-color: var(--accent-gold);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 700;
+            margin-right: 10px;
+            transition: opacity 0.3s;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            .hero { flex-direction: column-reverse; text-align: center; padding: 40px 5%; }
+            .hero-text { padding-left: 0; margin-top: 40px; }
+            .hero-text h1 { font-size: 2.5rem; }
+            .pillars { flex-direction: column; gap: 40px; }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <div class="hero-image">
+            <img src="rabbi_image.jpg" alt="הרב משה יהודה גינזי">
+        </div>
+        <div class="hero-text">
+            <h1>חוכמת הדורות.<br>בטכנולוגיה של מחר.</h1>
+            <p>My Rabbi מנגיש עבורך את אוצרות היהדות בשיח אישי, דיסקרטי ומדויק. בלי מתווכים, בלי שיפוטיות. פשוט לשאול.</p>
+            <button onclick="document.getElementById('waitlist').scrollIntoView()">הצטרפו למהפכת הידע</button>
+        </div>
+    </section>
+
+    <section class="gallery">
+        <h2 class="section-title">יותר מתשובות. חוכמה לחיים.</h2>
+        <div class="cards-container">
+            <div class="card">
+                <h3>איך שומרים על שלום בית בעידן של רעש דיגיטלי?</h3>
+            </div>
+            <div class="card">
+                <h3>מה היהדות אומרת על המזל שלי? האם אפשר לשנות אותו?</h3>
+            </div>
+            <div class="card">
+                <h3>בינה מלאכותית, שבת ומוסר: לאן פנינו מועדות?</h3>
+            </div>
+            <div class="card">
+                <h3>הסוד היהודי לניהול זמן ושלווה בתוך המרוץ.</h3>
+            </div>
+        </div>
+    </section>
+
+    <section class="pillars">
+        <div class="pillar">
+            <h4>חיבור אישי</h4>
+            <p>שיחה שמרגישה כמו התייעצות עם חבר קרוב, בגובה העיניים.</p>
+        </div>
+        <div class="pillar">
+            <h4>דיוק הלכתי</h4>
+            <p>בינה מלאכותית המבוססת על המקורות המוסמכים ביותר.</p>
+        </div>
+        <div class="pillar">
+            <h4>פרטיות מוחלטת</h4>
+            <p>השאלות שלך נשארות בינך לבין המסך. ללא עקבות.</p>
+        </div>
+    </section>
+
+    <section class="cta" id="waitlist">
+        <h2>היו הראשונים להתחבר למצפן היהודי האישי שלכם</h2>
+        <p>הזינו אימייל לקבלת הזמנה אישית להשקה.</p>
+        <div class="email-form">
+            <input type="email" placeholder="האימייל שלך">
+            <button>שלחו לי הזמנה</button>
+        </div>
+    </section>
+
+</body>
+</html>
