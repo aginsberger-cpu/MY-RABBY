@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Rabbi | בינה מלאכותית בלב יהודי</title>
+    <title>My Rabbi | חוכמת הדורות בבינה מלאכותית</title>
     <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -15,18 +15,15 @@
 
         body {
             font-family: 'Assistant', sans-serif;
-            margin: 0;
-            padding: 0;
+            margin: 0; padding: 0;
             background-color: white;
             color: var(--primary-blue);
-            line-height: 1.7;
+            line-height: 1.8;
         }
 
         header {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            height: 75px;
-            background: rgba(255, 255, 255, 0.98);
+            position: fixed; top: 0; left: 0; right: 0;
+            height: 75px; background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(15px);
             display: flex; align-items: center; justify-content: space-between;
             padding: 0 10%; z-index: 1000;
@@ -41,62 +38,47 @@
             color: var(--accent-gold); font-weight: 700; font-size: 0.85rem;
             text-align: center; line-height: 1.1;
         }
-        .logo-text { font-weight: 700; font-size: 1.3rem; }
 
         .hero {
             display: flex; align-items: center; justify-content: space-between;
             padding: 180px 10% 100px;
             background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
-            min-height: 60vh;
         }
 
         .hero-text { flex: 1; padding-left: 60px; }
-        .hero-text .ai-badge { display: inline-block; background: var(--primary-blue); color: var(--accent-gold); padding: 6px 20px; border-radius: 50px; font-weight: 700; margin-bottom: 25px; font-size: 0.8rem; }
-        .hero-text h1 { font-size: 4rem; margin-bottom: 20px; font-weight: 700; line-height: 1.1; }
-        .hero-text p { font-size: 1.5rem; color: var(--text-gray); max-width: 600px; margin-bottom: 40px; }
+        .hero-text h1 { font-size: 3.8rem; margin-bottom: 20px; font-weight: 700; line-height: 1.2; }
+        .hero-text p { font-size: 1.4rem; color: var(--text-gray); max-width: 650px; }
 
         .hero-image img {
             width: 420px; border-radius: 50%; border: 12px solid white;
             box-shadow: 0 40px 80px rgba(0,0,0,0.12);
         }
 
-        /* איך זה עובד - הקסם הטכנולוגי */
-        .how-it-works { padding: 100px 10%; background: white; text-align: center; }
-        .how-it-works h2 { font-size: 3rem; margin-bottom: 60px; }
-        .methods-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; }
-        .method-card { 
-            padding: 40px; border-radius: 30px; background: var(--light-bg); 
-            transition: 0.3s; border: 1px solid #eee;
-        }
-        .method-card:hover { transform: translateY(-10px); background: white; box-shadow: 0 20px 40px rgba(0,0,0,0.05); border-color: var(--accent-gold); }
-        .method-icon { font-size: 3rem; margin-bottom: 20px; display: block; }
-        .method-card h3 { font-size: 1.6rem; color: var(--primary-blue); margin-bottom: 15px; }
-        .method-card p { color: var(--text-gray); font-size: 1.1rem; }
+        /* חלק 2: בינה מלאכותית עם נשמה */
+        .ai-soul { padding: 100px 15%; background: var(--primary-blue); color: white; text-align: center; }
+        .ai-soul h2 { color: var(--accent-gold); font-size: 2.8rem; margin-bottom: 25px; }
+        .ai-soul p { max-width: 900px; margin: 0 auto; font-size: 1.3rem; font-weight: 300; line-height: 2; }
 
-        .ai-feature { padding: 100px 15%; background: var(--primary-blue); color: white; text-align: center; }
-        .ai-feature h2 { color: var(--accent-gold); font-size: 2.8rem; margin-bottom: 25px; }
-        .ai-feature p { max-width: 900px; margin: 0 auto; font-size: 1.4rem; opacity: 0.95; }
-
+        /* חלק 3: בנק השאלות */
         .q-bank { padding: 100px 10%; background-color: var(--light-bg); }
         .q-bank h2 { text-align: center; font-size: 2.8rem; margin-bottom: 60px; }
         .q-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
-        .q-card { 
-            background: white; padding: 40px; border-radius: 25px; 
-            box-shadow: 0 15px 35px rgba(0,0,0,0.04); border-top: 5px solid var(--accent-gold);
-        }
-        .q-card .tag { color: var(--accent-gold); font-weight: 700; font-size: 0.9rem; margin-bottom: 15px; display: block; }
+        .q-card { background: white; padding: 40px; border-radius: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); border-top: 4px solid var(--accent-gold); }
+        .q-card h3 { font-size: 1.4rem; margin-bottom: 15px; color: var(--primary-blue); }
 
-        .cta { padding: 120px 10%; text-align: center; background: white; }
-        button { 
-            padding: 22px 60px; background-color: var(--accent-gold); color: white; border: none; 
-            border-radius: 60px; cursor: pointer; font-weight: 700; font-size: 1.25rem; 
-            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3); transition: 0.3s; 
-        }
+        /* חלק 4: הקסם - איך זה עובד */
+        .how-magic { padding: 100px 10%; background: white; text-align: center; }
+        .how-magic h2 { font-size: 3rem; margin-bottom: 60px; }
+        .steps-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; }
+        .step { padding: 40px; border-radius: 30px; background: var(--light-bg); border: 1px solid #eee; }
+        .step h3 { font-size: 1.6rem; margin-bottom: 15px; color: var(--primary-blue); }
+
+        .cta { padding: 120px 10%; text-align: center; }
+        button { padding: 22px 60px; background-color: var(--accent-gold); color: white; border: none; border-radius: 60px; cursor: pointer; font-weight: 700; font-size: 1.25rem; }
 
         @media (max-width: 768px) {
             .hero { flex-direction: column-reverse; text-align: center; padding-top: 140px; }
             .hero-text { padding-left: 0; }
-            .hero-text h1 { font-size: 2.8rem; }
             .hero-image img { width: 300px; }
         }
     </style>
@@ -108,7 +90,7 @@
             <div class="logo-circle">MY<br>RABBI</div>
             <div class="logo-text">MY RABBI</div>
         </div>
-        <button style="padding: 10px 25px; font-size: 1rem;" onclick="document.getElementById('waitlist').scrollIntoView()">להרשמה</button>
+        <button style="padding: 10px 25px; font-size: 1rem;" onclick="document.getElementById('waitlist').scrollIntoView()">הצטרפות</button>
     </header>
 
     <section class="hero">
@@ -116,64 +98,56 @@
             <img src="rabbi_image.jpg" alt="My Rabbi">
         </div>
         <div class="hero-text">
-            <div class="ai-badge">FUTURE OF TRADITION</div>
-            <h1>התשובות שחיפשת.<br><span style="color: var(--accent-gold);">בכל דרך שתבחרי.</span></h1>
-            <p>המהפכה כבר כאן. My Rabbi רותם את טכנולוגיית ה-AI הכי מתקדמת בעולם כדי לתת לך מענה אישי, מהיר ומדויק – בטקסט, בקול או בשיחה פנים אל פנים.</p>
-            <button onclick="document.getElementById('how').scrollIntoView()">איך זה עובד?</button>
+            <h1>מענה תורני בשפה של המחר.</h1>
+            <p>ברוכים הבאים למרחב של חוכמה, שבו המקורות העתיקים פוגשים את קדמת הטכנולוגיה. שיח אישי, מעמיק ומכבד המונגש לכל אדם, בכל עת.</p>
         </div>
     </section>
 
-    <section class="how-it-works" id="how">
-        <h2>איך הקסם קורה?</h2>
-        <div class="methods-grid">
-            <div class="method-card">
-                <span class="method-icon">✍️</span>
-                <h3>שאלה בכתב</h3>
-                <p>פשוט מקלידים את מה שיושב על הלב. הבינה המלאכותית תסרוק אלפי מקורות ותחזור אליך עם תשובה מפורטת, מנומקת ומדויקת תוך שניות.</p>
-            </div>
-            <div class="method-card">
-                <span class="method-icon">🎤</span>
-                <h3>דיבור קולי</h3>
-                <p>אין לך כוח להקליד? פשוט דברי. המערכת מבינה שפה טבעית, מקשיבה לשאלה שלך ועונה לך בקול אנושי וחם, ממש כמו בשיחת טלפון אישית.</p>
-            </div>
-            <div class="method-card">
-                <span class="method-icon">👤</span>
-                <h3>שיחה עם ה-Avatar</h3>
-                <p>השיא הטכנולוגי: שיחת וידאו אינטראקטיבית עם הרב המועדף עליך. הדמות מגיבה אליך בזמן אמת, מדברת איתך פנים אל פנים ויוצרת חיבור עמוק ומרגש.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="ai-feature">
+    <section class="ai-soul">
         <h2>בינה מלאכותית עם נשמה יהודית</h2>
-        <p>שילבנו מודלי שפה שסרקו את כל אוצרות היהדות – מהתנ"ך והגמרא ועד להלכה המודרנית. My Rabbi מבין את ההקשר האישי שלך ומעניק לך תשובה שמחברת בין עומק המסורת לקדמת הטכנולוגיה.</p>
+        <p>מערכת My Rabbi אינה רק אלגוריתם, אלא תולדה של הטמעת אלפי מקורות ידע מן התנ"ך, הגמרא, ההלכה וספרי המחשבה. הבינה המלאכותית שלנו תוכננה להבין את עומק השאלה האנושית ולהשיב במתינות ובדיוק המבוסס על שורשי המסורת, תוך שמירה מלאה על פרטיות המשתמש.</p>
     </section>
 
     <section class="q-bank">
-        <h2>דוגמאות לשיח של חוכמה</h2>
+        <h2>אפיקי התייעצות ודוגמאות</h2>
         <div class="q-grid">
             <div class="q-card">
-                <span class="tag">חינוך</span>
-                <h3>"איך מרגילים ילדים להעריך שקט בעולם רועש?"</h3>
-                <p>היהדות מלמדת ש'השקט הוא כלי לחוכמה'. My Rabbi מציע כלים לבניית רגעים משפחתיים נטולי מסכים שיוצרים חיבור רגשי אמיתי.</p>
+                <h3>שלוות הנפש</h3>
+                <p>כיצד ניתן לשמר חוסן פנימי ורוגע אל מול אתגרי היומיום והרעש הדיגיטלי המקיף אותנו?</p>
             </div>
             <div class="q-card">
-                <span class="tag">זוגיות</span>
-                <h3>"איך שומרים על הערכה הדדית בתוך שגרת הפרנסה?"</h3>
-                <p>סוד ה'עין הטובה' הוא המפתח. המערכת תכוון אתכם לתרגילים מעשיים של הכרת הטוב שיחזירו את האור לקשר.</p>
+                <h3>זוגיות ובית</h3>
+                <p>מהם היסודות לבניית תקשורת מעצימה ושימור ההערכה ההדדית בתוך שגרת החיים האינטנסיבית?</p>
             </div>
             <div class="q-card">
-                <span class="tag">טכנולוגיה</span>
-                <h3>"האם מותר להשתמש בבינה מלאכותית בשבת?"</h3>
-                <p>כלי טכנולוגי דורש התבוננות הלכתית. My Rabbi יעזור לכם להבין את עקרונות השימוש במערכות אוטומטיות בעידן החדש.</p>
+                <h3>טכנולוגיה וערכים</h3>
+                <p>האם ניתן לרתום את הבינה המלאכותית ככלי לעבודת השם, ומהן ההשלכות המוסריות של שימוש זה?</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="how-magic">
+        <h2>הקסם שמאחורי הממשק</h2>
+        <div class="steps-container">
+            <div class="step">
+                <h3>דיאלוג כתוב</h3>
+                <p>ניתן להעלות שאלות ותהיות בכתב. המערכת מנתחת את מהות הפנייה ומשיבה בטקסט רהוט, מנומק ומגובה במקורות תוך שניות בודדות.</p>
+            </div>
+            <div class="step">
+                <h3>ממשק קולי</h3>
+                <p>למעוניינים בשיח טבעי יותר, ניתן לשוחח עם המערכת. הבינה המלאכותית מעבדת את הקול האנושי ומשיבה בשפה מדוברת ונעימה להקשבה.</p>
+            </div>
+            <div class="step">
+                <h3>נוכחות ויזואלית</h3>
+                <p>חוויית קצה המשלבת דמות (Avatar) המייצגת דמות רבנית, המאפשרת שיחה פנים אל פנים. זהו גשר טכנולוגי המעניק תחושת קרבה וחמישות אנושית.</p>
             </div>
         </div>
     </section>
 
     <section class="cta" id="waitlist">
-        <h2>העתיד של עולם התורה כבר כאן</h2>
-        <p style="color: var(--text-gray); font-size: 1.3rem; margin-bottom: 40px;">הצטרפו לאלפי אנשים שכבר מחכים לשיחה הבאה שלהם. אל תישארו מאחור.</p>
-        <button>אני רוצה להצטרף לרשימת ההמתנה</button>
+        <h2>הצטרפו לדור הבא של עולם הידע</h2>
+        <p style="color: var(--text-gray); margin-bottom: 40px;">היו בין הראשונים להתנסות בחוויית My Rabbi.</p>
+        <button>הרשמה לרשימת ההמתנה</button>
     </section>
 
 </body>
